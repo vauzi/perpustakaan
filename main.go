@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/vauzi/perpustakaan/app/http/auth"
+	"github.com/vauzi/perpustakaan/app/http/book"
 	"github.com/vauzi/perpustakaan/app/http/category"
 	"github.com/vauzi/perpustakaan/app/models"
 )
@@ -19,6 +20,7 @@ func main() {
 
 	auth.AuthRoutes(public, dbHandler)
 	category.CategoryRoutes(public, dbHandler)
+	book.BookRoutes(public, dbHandler)
 
 	if err := godotenv.Load(); err != nil {
 		log.Println("Error loading .env file")

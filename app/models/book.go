@@ -12,6 +12,6 @@ type Book struct {
 	Author      string    `gorm:"size:255;not null" json:"author"`
 	Published   string    `gorm:"size:255;not null" json:"published"`
 	Description string    `gorm:"type:text" json:"description"`
-	CategoryID  uint      `gorm:"not null" json:"category_id"`
+	CategoryID  uuid.UUID `gorm:"not null" json:"category_id"`
 	Category    Category  `gorm:"foreignKey:CategoryID" json:"category"`
 }
