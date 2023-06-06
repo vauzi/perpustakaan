@@ -36,7 +36,7 @@ func (h handler) SignUp(c *gin.Context) {
 		return
 	}
 
-	var user = models.User{}
+	var user = models.Admin{}
 
 	result := h.DB.First(&user, "username = ?", body.Username)
 	if result.Error == nil {
@@ -63,7 +63,7 @@ func (h handler) SignIp(c *gin.Context) {
 		return
 	}
 
-	var user = models.User{}
+	var user = models.Admin{}
 	if result := h.DB.First(&user, "username = ?", body.Username); result.Error != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return

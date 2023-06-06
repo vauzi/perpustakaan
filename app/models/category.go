@@ -7,6 +7,7 @@ import (
 
 type Category struct {
 	gorm.Model
-	ID   uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4()" json:"id"`
-	Name string    `gorm:"size:255;not null" json:"name"`
+	ID    uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4()" json:"id"`
+	Name  string    `gorm:"size:255;not null" json:"name"`
+	Books []Book    `gorm:"foreignKey:CategoryID" json:"books"`
 }

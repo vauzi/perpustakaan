@@ -32,7 +32,7 @@ func ConnectDatabase() *gorm.DB {
 		log.Fatalln("connection error:", err)
 	}
 
-	database.AutoMigrate(&User{}, &Category{})
+	database.AutoMigrate(&Admin{}, &Category{}, &Book{}, &User{}, &Borrower{})
 
 	return database
 
