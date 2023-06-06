@@ -1,8 +1,12 @@
 package models
 
-import "github.com/jinzhu/gorm"
+import (
+	"github.com/google/uuid"
+	"github.com/jinzhu/gorm"
+)
 
 type Category struct {
 	gorm.Model
-	Name string `gorm:"size:255;not null" json:"name"`
+	ID   uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4()" json:"id"`
+	Name string    `gorm:"size:255;not null" json:"name"`
 }
