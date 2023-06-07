@@ -4,12 +4,11 @@ import (
 	"errors"
 	"log"
 	"net/http"
-	"time"
 
-	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 	"github.com/vauzi/perpustakaan/app/models"
+	"github.com/vauzi/perpustakaan/app/token"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -17,8 +16,6 @@ type AddUserRequestBody struct {
 	Username string `json:"username" binding:"required,min=3"`
 	Password string `json:"password" binding:"required,min=6"`
 }
-
-var jwtSecret = []byte("your_secret_key")
 
 func (h handler) SignUp(c *gin.Context) {
 	body := AddUserRequestBody{}
@@ -63,7 +60,7 @@ func (h handler) SignIp(c *gin.Context) {
 		return
 	}
 
-	var user = models.User{}
+	user := models.User{}
 	if result := h.DB.First(&user, "username = ?", body.Username); result.Error != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return
@@ -74,20 +71,13 @@ func (h handler) SignIp(c *gin.Context) {
 		return
 	}
 
-	// Create JWT token
-	token := jwt.New(jwt.SigningMethodHS256)
-	claims := token.Claims.(jwt.MapClaims)
-	claims["id"] = user.ID
-	claims["username"] = user.Username
-	claims["exp"] = time.Now().Add(time.Hour * 24).Unix()
-
-	tokenString, err := token.SignedString(jwtSecret)
+	token, err := token.GenerateToken(user.ID)
 	if err != nil {
 		log.Println("Failed to generate token:", err)
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate token"})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"status": "success", "message": "Signed in successfully", "token": tokenString})
+	c.JSON(http.StatusOK, gin.H{"status": "success", "message": "Signed in successfully", "token": token})
 
 }

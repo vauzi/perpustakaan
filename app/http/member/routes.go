@@ -2,6 +2,7 @@ package member
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/vauzi/perpustakaan/app/middleware"
 	"gorm.io/gorm"
 )
 
@@ -15,7 +16,7 @@ func UserRoutes(public *gin.RouterGroup, db *gorm.DB) {
 	}
 
 	r := public.Group("/members")
-
-	r.POST("/", h.AddMembers)
+	r.Use(middleware.JwtAuthMiddleware())
+	r.POST("/", middleware.UserIsActive, h.AddMembers)
 	r.GET("/", h.GetAllMembers)
 }

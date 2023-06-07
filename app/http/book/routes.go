@@ -2,6 +2,7 @@ package book
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/vauzi/perpustakaan/app/middleware"
 	"gorm.io/gorm"
 )
 
@@ -15,7 +16,8 @@ func BookRoutes(public *gin.RouterGroup, db *gorm.DB) {
 	}
 
 	r := public.Group("/books")
+	r.Use(middleware.JwtAuthMiddleware())
 
-	r.POST("/", h.AddBooks)
+	r.POST("/", middleware.UserIsActive, h.AddBooks)
 	r.GET("/", h.GetAllBooks)
 }
