@@ -16,7 +16,7 @@ type Member struct {
 	Gender      string     `gorm:"size:255;not null" json:"gender"`
 	Work        string     `gorm:"size:255;not null" json:"work"`
 	UserAddress string     `gorm:"size:255;not null" json:"user_address"`
-	IsActive    bool       `gorm:"not null" json:"is_active"`
+	IsActive    bool       `gorm:"default:true" json:"is_active"`
 	Status      string     `gorm:"not null" json:"status"`
 	BirthDate   time.Time  `gorm:"type:date" json:"birth_date"`
 	BirthPlace  string     `gorm:"size:255" json:"birth_place"`
