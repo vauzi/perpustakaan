@@ -14,7 +14,8 @@ func UserRoutes(public *gin.RouterGroup, db *gorm.DB) {
 		DB: db,
 	}
 
-	r := public.Group("/users")
+	r := public.Group("/members")
 
-	r.POST("/", h.AddUsers)
+	r.POST("/", h.AddMembers)
+	r.GET("/", h.GetAllMembers)
 }

@@ -10,21 +10,20 @@ import (
 	"github.com/vauzi/perpustakaan/app/models"
 )
 
-type UsreRequestBody struct {
+type MemberRequestBody struct {
 	FullName    string    `json:"full_name" binding:"required"`
 	NoInduk     string    `json:"no_induk" binding:"required"`
 	NoHp        string    `json:"no_hp" binding:"required"`
 	Gender      string    `json:"gender" binding:"required"`
 	Work        string    `json:"work" binding:"required"`
 	UserAddress string    `json:"user_address" binding:"required"`
-	IsActive    bool      `json:"is_active" binding:"required"`
 	Status      string    `json:"status" binding:"required"`
 	BirthDate   time.Time `json:"birth_date" binding:"required"`
 	BirthPlace  string    `json:"birth_place" binding:"required"`
 }
 
-func (h handler) AddUsers(c *gin.Context) {
-	var body = UsreRequestBody{}
+func (h handler) AddMembers(c *gin.Context) {
+	var body = MemberRequestBody{}
 
 	if err := c.ShouldBindJSON(&body); err != nil {
 		var ve validator.ValidationErrors
@@ -45,7 +44,6 @@ func (h handler) AddUsers(c *gin.Context) {
 	member.Gender = body.Gender
 	member.Work = body.Work
 	member.UserAddress = body.UserAddress
-	member.IsActive = body.IsActive
 	member.Status = body.Status
 	member.BirthDate = body.BirthDate
 	member.BirthPlace = body.BirthPlace
@@ -56,4 +54,16 @@ func (h handler) AddUsers(c *gin.Context) {
 
 	c.JSON(http.StatusCreated, gin.H{"status": "success", "message": "user added successfully"})
 
+}
+
+func (h handler) GetAllMembers(c *gin.Context) {
+
+	var member []models.Member
+
+	if result := h.DB.Find(&member); result.Error != nil {
+		c.AbortWithStatusJSON(http.StatusNotFound, gin.H{"status": "error", "message": result.Error})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"status": "success", "data": member})
 }

@@ -14,7 +14,7 @@ type User struct {
 	ID        uuid.UUID  `gorm:"type:uuid;default:uuid_generate_v4()" json:"id"`
 	Username  string     `gorm:"size:255;not null;unique" json:"username"`
 	Password  string     `gorm:"size:255;not null;" json:"password"`
-	IsActive  bool       `gorm:"default:true" json:"is_active"`
+	IsActive  bool       `gorm:"default:false" json:"is_active"`
 	Borrowers []Borrower `gorm:"foreignKey:UserID" json:"borrowers"`
 }
 
