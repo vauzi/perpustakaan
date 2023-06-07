@@ -11,9 +11,10 @@ import (
 
 type Admin struct {
 	gorm.Model
-	ID       uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4()" json:"id"`
-	Username string    `gorm:"size:255;not null;unique" json:"username"`
-	Password string    `gorm:"size:255;not null;" json:"password"`
+	ID        uuid.UUID  `gorm:"type:uuid;default:uuid_generate_v4()" json:"id"`
+	Username  string     `gorm:"size:255;not null;unique" json:"username"`
+	Password  string     `gorm:"size:255;not null;" json:"password"`
+	Borrowers []Borrower `gorm:"foreignKey:UserID" json:"borrowers"`
 }
 
 func (admin *Admin) HashPassword() error {
