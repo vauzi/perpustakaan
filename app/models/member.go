@@ -7,7 +7,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-type User struct {
+type Member struct {
 	gorm.Model
 	ID          uuid.UUID  `gorm:"type:uuid;default:uuid_generate_v4()" json:"id"`
 	FullName    string     `gorm:"size:255;not null" json:"full_name"`
@@ -19,6 +19,6 @@ type User struct {
 	IsActive    bool       `gorm:"not null" json:"is_active"`
 	Status      string     `gorm:"not null" json:"status"`
 	BirthDate   time.Time  `gorm:"type:date" json:"birth_date"`
-	Birthplace  string     `gorm:"size:255" json:"birth_place"`
+	BirthPlace  string     `gorm:"size:255" json:"birth_place"`
 	Borrowers   []Borrower `gorm:"foreignKey:UserID" json:"borrowers"`
 }
