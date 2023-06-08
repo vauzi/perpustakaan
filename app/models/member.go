@@ -20,5 +20,5 @@ type Member struct {
 	Status      string     `gorm:"not null" json:"status"`
 	BirthDate   time.Time  `gorm:"type:date" json:"birth_date"`
 	BirthPlace  string     `gorm:"size:255" json:"birth_place"`
-	Borrowers   []Borrower `gorm:"foreignKey:UserID" json:"borrowers"`
+	Borrowers   []Borrower `gorm:"foreignKey:MemberID" json:"borrowers"`
 }

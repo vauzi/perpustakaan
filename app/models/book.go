@@ -14,5 +14,5 @@ type Book struct {
 	Description string     `gorm:"type:text" json:"description"`
 	CategoryID  uuid.UUID  `gorm:"not null" json:"category_id"`
 	Category    Category   `gorm:"foreignKey:CategoryID" json:"category"`
-	Borrowers   []Borrower `gorm:"foreignKey:UserID" json:"borrowers"`
+	Borrowers   []Borrower `gorm:"foreignKey:BookID" json:"borrowers"`
 }

@@ -8,6 +8,7 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/vauzi/perpustakaan/app/http/auth"
 	"github.com/vauzi/perpustakaan/app/http/book"
+	"github.com/vauzi/perpustakaan/app/http/borrower"
 	"github.com/vauzi/perpustakaan/app/http/category"
 	"github.com/vauzi/perpustakaan/app/http/member"
 	"github.com/vauzi/perpustakaan/app/models"
@@ -23,6 +24,7 @@ func main() {
 	category.CategoryRoutes(public, dbHandler)
 	book.BookRoutes(public, dbHandler)
 	member.UserRoutes(public, dbHandler)
+	borrower.BorrowerRoutes(public, dbHandler)
 
 	if err := godotenv.Load(); err != nil {
 		log.Println("Error loading .env file")

@@ -13,9 +13,9 @@ type Borrower struct {
 	BorrowedDate time.Time  `gorm:"type:timestamp;default:CURRENT_TIMESTAMP" json:"borrowed_date"`
 	ReturnedDate *time.Time `gorm:"type:timestamp;default:null" json:"returned_date"`
 	MemberID     uuid.UUID  `gorm:"not null" json:"member_id"`
-	Member       Member     `gorm:"foreignKey:UserID" json:"members"`
+	Member       Member     `gorm:"foreignKey:MemberID" json:"members"`
 	UserID       uuid.UUID  `gorm:"not null" json:"user_id"`
 	User         User       `gorm:"foreignKey:UserID" json:"users"`
 	BookID       uuid.UUID  `gorm:"not null" json:"book_id"`
-	Book         Book       `gorm:"foreignKey:UserID" json:"books"`
+	Book         Book       `gorm:"foreignKey:BookID" json:"books"`
 }

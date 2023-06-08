@@ -11,11 +11,11 @@ import (
 
 type User struct {
 	gorm.Model
-	ID        uuid.UUID  `gorm:"type:uuid;default:uuid_generate_v4()" json:"id"`
-	Username  string     `gorm:"size:255;not null;unique" json:"username"`
-	Password  string     `gorm:"size:255;not null;" json:"password"`
-	IsActive  bool       `gorm:"default:false" json:"is_active"`
-	Borrowers []Borrower `gorm:"foreignKey:UserID" json:"borrowers"`
+	ID       uuid.UUID  `gorm:"type:uuid;default:uuid_generate_v4()" json:"id"`
+	Username string     `gorm:"size:255;not null;unique" json:"username"`
+	Password string     `gorm:"size:255;not null;" json:"password"`
+	IsActive bool       `gorm:"default:false" json:"is_active"`
+	Borrower []Borrower `gorm:"foreignKey:UserID" json:"borrowers"`
 }
 
 func (user *User) HashPassword() error {
