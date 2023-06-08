@@ -1,0 +1,462 @@
+{
+	"info": {
+		"_postman_id": "cf8306f2-ac9c-474f-9039-e1bad67d7f7d",
+		"name": "go-perpus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18861582"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"isman\",\n    \"password\": \"isman123\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/sign-up",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"isman\",\n    \"password\": \"isman123\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/sign-ip",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"sign-ip"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "Create category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2ODYxODI3MjEsInVzZXJfaWQiOiJkYjFiOWYxNy00MGQ2LTRmODQtYmE5Ny0wNzJhMWJmYWRkMTEifQ.tCaDNH_4wIi85IlYdiOEKQ-x6jdZSryaFt47TFRbf0Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Infoprmatik\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/category",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2ODYxODI3MjEsInVzZXJfaWQiOiJkYjFiOWYxNy00MGQ2LTRmODQtYmE5Ny0wNzJhMWJmYWRkMTEifQ.tCaDNH_4wIi85IlYdiOEKQ-x6jdZSryaFt47TFRbf0Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/category",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Create Book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2ODYxODI3MjEsInVzZXJfaWQiOiJkYjFiOWYxNy00MGQ2LTRmODQtYmE5Ny0wNzJhMWJmYWRkMTEifQ.tCaDNH_4wIi85IlYdiOEKQ-x6jdZSryaFt47TFRbf0Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Ismanasdf\",\n\t\"author\": \"Isman\",\n\t\"published\": \"Sinar Cahaya\",\n\t\"description\": \"asdasdfasf\",\n\t\"category_id\": \"7a57fe78-1d69-450b-8732-bafaa75a0a2d\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/books",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Book",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2ODYxODEwMTksInVzZXJfaWQiOiJkZmUyMmYwOC1jMGI2LTRmZjItYjg0ZS0yM2FhZmM5NjhlYjUifQ.mfdK1Z2b1qTbvT3ohjKtBou3TTQ21AqALEjC2UMw8kc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"asdfsdf\",\n\t\"author\": \"Isman\",\n\t\"published\": \"Sinar Cahaya\",\n\t\"description\": \"asdasdfasf\",\n\t\"category_id\": \"600b47c6-97e8-4f8f-8cd6-c4690b686cc8\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/books",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "member",
+			"item": [
+				{
+					"name": "Create member",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2ODYxODI3MjEsInVzZXJfaWQiOiJkYjFiOWYxNy00MGQ2LTRmODQtYmE5Ny0wNzJhMWJmYWRkMTEifQ.tCaDNH_4wIi85IlYdiOEKQ-x6jdZSryaFt47TFRbf0Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_name\": \"isman vauzi\",\n\t\"no_induk\" : \"\",\n\t\"no_hp\":\"sadf\",\n\t\"gender\": \"laki-laki\",\n\t\"work\" : \"pelajar\",\n\t\"user_address\":\"sdf\",\n\t\"status\": \"anggota\",\n    \"birth_date\": \"2001-01-01T00:00:00Z\",\n\t\"birth_place\": \"Trenggalek\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/members",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll member",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2ODYxODI3MjEsInVzZXJfaWQiOiJkYjFiOWYxNy00MGQ2LTRmODQtYmE5Ny0wNzJhMWJmYWRkMTEifQ.tCaDNH_4wIi85IlYdiOEKQ-x6jdZSryaFt47TFRbf0Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/members",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"members"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "borrower",
+			"item": [
+				{
+					"name": "create borrwer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2ODYxODQzNDcsInVzZXJfaWQiOiI0MTllNjlmOS0wZGFlLTRlMGMtOWU3Ny0yMWNkMjMzY2ZjOGQifQ.IUASXAlu9wBfxVJhgdoe6zCgYAvyhG3I37qS88ljjFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"member_id\": \"b8bdbe78-d140-41be-84d3-f20f19a732de\",\n\t\"book_id\" : \"dc740765-34fc-4499-a493-f80a61327899\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/borrower",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"borrower"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all borrwer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2ODYxODQzNDcsInVzZXJfaWQiOiI0MTllNjlmOS0wZGFlLTRlMGMtOWU3Ny0yMWNkMjMzY2ZjOGQifQ.IUASXAlu9wBfxVJhgdoe6zCgYAvyhG3I37qS88ljjFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"member_id\": \"b8bdbe78-d140-41be-84d3-f20f19a732de\",\n\t\"book_id\" : \"dc740765-34fc-4499-a493-f80a61327899\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/borrower",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"borrower"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete borrwer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2ODYxODQzNDcsInVzZXJfaWQiOiI0MTllNjlmOS0wZGFlLTRlMGMtOWU3Ny0yMWNkMjMzY2ZjOGQifQ.IUASXAlu9wBfxVJhgdoe6zCgYAvyhG3I37qS88ljjFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"member_id\": \"b8bdbe78-d140-41be-84d3-f20f19a732de\",\n\t\"book_id\" : \"dc740765-34fc-4499-a493-f80a61327899\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/borrower/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"borrower",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
